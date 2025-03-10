@@ -1,0 +1,44 @@
+// This is the code to guess random number generator
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Game {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        int number;
+        String name;
+        int chances = 0;
+        int guess;
+         number = random.nextInt(1, 100);
+        System.out.print("Enter your Name: ");
+        name = scanner.nextLine();
+
+        while(chances < 9){
+        System.out.print("Enter your guess: ");
+        guess = scanner.nextInt();
+         if(guess == number)
+         {
+             System.out.println(name + " You guessed the number " + guess + " and it is the correct number");
+             break;
+         }
+         else if(guess != number && chances < 9){
+             System.out.println(name + " You guessed the number " + guess + " and it is not the correct number. So please try again");
+             chances++;
+             if(guess < number){
+                 System.out.println("The correct number is higher than your guess");
+             }
+             else{
+                 System.out.println("The correct number is lower than your guess");
+             }
+         }
+         else{
+             System.out.println(name + " You guessed the number " + guess + " and it is not the correct number. So sorry you lose");
+         } }
+        System.out.println("The correct number is " + number + "");
+         scanner.close();
+
+    }
+}
