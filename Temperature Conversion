@@ -1,0 +1,36 @@
+// This is a code to convert temperature 
+import java.util.Scanner;
+public class Temperature
+{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        //temp1 and newTemp2 are celsius temp2 and newTemp1 will be Fahreneit
+        System.out.println("This program converts temperatures between Celsius and Fahrenheit");
+        double temp1, temp2;
+        double newTemp1, newTemp2;
+        String unit1, unit2;
+        System.out.print("Enter your input temperature:(C/F) ");
+        unit1 = scanner.next().toUpperCase();
+        if(unit1.equals("C"))
+        {
+            System.out.print("Enter your temperature in Celsius: ");
+            temp1 = scanner.nextDouble();
+            newTemp1 = (temp1 * 9/5) + 32;
+            unit2 = "F";
+            System.out.printf("Your temperature after conversion is  %.2f%s" ,newTemp1 , unit2);
+        }
+        else if(unit1.equals("F"))
+        {
+            System.out.print("Enter your temperature in Fahrenheit: ");
+            temp1 = scanner.nextDouble();
+            newTemp1 = (temp1 - 32) * 5/9;
+            unit2 = "C";
+            System.out.printf("Your temperature after conversion is %.2f%s" ,newTemp1 , unit2);
+        }
+        else
+        {
+            System.out.println("Invalid input");
+        }
+        scanner.close();
+    }
+}
