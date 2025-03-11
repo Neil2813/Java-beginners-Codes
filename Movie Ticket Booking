@@ -1,0 +1,56 @@
+// Movie Ticket Booking
+import java.util.Scanner;
+
+public class Theatre {
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        String name;
+        String movie_name;
+        int age;
+        double ticket_price = 223.15;
+        int quantity;
+        double total_amount;
+        boolean will_pay;
+        boolean payment;
+
+        System.out.print("Enter your name: ");
+        name = scanner.nextLine();
+
+        System.out.print("Hey " + name +" please enter the movie name which you want to watch: ");
+        movie_name = scanner.nextLine();
+
+        System.out.print("Enter your age: ");
+        age = scanner.nextInt();
+
+        if (age >=18)
+        {
+            System.out.print("Enter the quantity of tickets: ");
+            quantity = scanner.nextInt();
+
+            total_amount = ticket_price * quantity;
+
+            System.out.printf("The total amount for the movie " + movie_name + " is %.2f" , total_amount);
+
+            System.out.print("\nWould you like to pay the amount? ");
+            will_pay = scanner.nextBoolean();
+
+            if (will_pay) {
+                System.out.println("Did the payment go through successfully? ");
+                payment = scanner.nextBoolean();
+                if(payment) {
+                    System.out.println("Thank you for your purchase. Please enjoy the show!!!");
+                }
+                else{
+                    System.out.println("Sorry, your payment was not successful. Please try again.");
+                }
+            }
+            else {
+                System.out.println("Ok " + name + ", Thank you for the enquire. This window is shutting down.\nTo purchase tickets again please restart the procedure");
+            }
+        }
+        else{
+            System.out.println("Sorry " + name + ", you are not eligible for this movie");
+        }
+    }
+}
