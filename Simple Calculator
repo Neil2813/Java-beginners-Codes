@@ -1,0 +1,43 @@
+// simple calculator in java
+
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args)
+    {
+      Scanner scanner = new Scanner(System.in);
+      double num1, num2, sum, difference, product, quotient, remainder, power, square_root1, square_root2;
+      int choice;
+      System.out.println("WELCOME TO THE SIMPLE CALCULATOR");
+      System.out.print("Enter first number: ");
+      num1 = scanner.nextDouble();
+      System.out.print("Enter the second number: ");
+      num2 = scanner.nextDouble();
+      System.out.println("The 2 numbers are: " + num1 + " and " + num2);
+      sum = num1 + num2;
+      difference = num1 - num2;
+      product = num1 * num2;
+      quotient = num1 / num2;
+      remainder = num1 % num2;
+      power = Math.pow(num1, num2);
+      square_root1 = Math.sqrt(num1);
+      square_root2 = Math.sqrt(num2);
+      System.out.println("Enter 1 for addition\nEnter 2 for subtraction\nEnter 3 for multiplication\nEnter 4 for division\nEnter 5 for remainder" +
+              "\nEnter 6 for power\nEnter 7 for square root of first number\nEnter 8 for square root of second number\nEnter 9 for value of PI");
+      choice = scanner.nextInt();
+      switch (choice)
+      {
+       case 1 -> System.out.println("The sum of the numbers is: " + sum);
+       case 2 -> System.out.println("The difference of the numbers is: " + difference);
+       case 3 -> System.out.println("The product of the numbers is: " + product);
+       case 4 -> System.out.println("The quotient of the numbers is: " + quotient);
+       case 5 -> System.out.println("The remainder of the numbers is: " + remainder);
+       case 6 -> System.out.println("The power of the numbers is: " + power);
+       case 7 -> System.out.println("The square root of the first number is: " + square_root1);
+       case 8 -> System.out.println("The square root of the second number is: " + square_root2);
+       case 9 -> System.out.println("The value of PI is: " + Math.PI);
+       default -> System.out.println("Invalid choice");
+      }
+
+    }
+}
