@@ -1,0 +1,40 @@
+// calculate compound interest
+
+import java.util.Scanner;
+public class CompoundInterest {
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        String name;
+        int age;
+        double principal_amount;
+        double time;
+        double rate_of_interest;
+        double compound_interest;;
+        double total;
+
+        System.out.print("Enter your name: ");
+        name = scanner.nextLine();
+
+        System.out.print("Enter your age: ");
+        age = scanner.nextInt();
+
+        if(age >= 18) {
+            System.out.println("Hello " + name + " you are eligible for compound interest");
+            System.out.print("Enter the principal amount: ");
+            principal_amount = scanner.nextDouble();
+            System.out.print("Enter the time period in years: ");
+            time = scanner.nextDouble();
+            System.out.print("Enter the rate of interest: ");
+            rate_of_interest = scanner.nextDouble();
+            compound_interest = principal_amount * Math.pow((1 + rate_of_interest / 100), time);
+            System.out.printf("The compound interest is %.3f\n", compound_interest);
+            total = compound_interest + principal_amount;
+            System.out.printf("The total amount after " + time + " years is %.2f" , total);
+        }
+        else {
+            System.out.println("Sorry " + name + " you are not eligible for compound interest");
+        }
+        scanner.close();
+    }
+}
