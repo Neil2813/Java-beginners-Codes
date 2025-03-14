@@ -1,0 +1,63 @@
+// Rock Paper Scissor
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class RockPaperScisccors {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        String[] game = {"ROCK", "PAPER", "SCISSOR"};
+        String playerchoice;
+        String computerchoice;
+        String playagain;
+
+        System.out.println("Welcome to Rock Paper Scissors!");
+
+        do {
+            int playerScore = 0;
+            int computerScore = 0;
+
+            while (playerScore < 5 && computerScore < 5) {
+                System.out.print("Enter your choice (ROCK, PAPER, SCISSOR): ");
+                playerchoice = scanner.nextLine().toUpperCase();
+
+                if (!playerchoice.equals("ROCK") && !playerchoice.equals("PAPER") && !playerchoice.equals("SCISSOR")) {
+                    System.out.println("Invalid choice! Please enter ROCK, PAPER, or SCISSOR.");
+                    continue;
+                }
+
+                computerchoice = game[random.nextInt(3)];
+                System.out.println("Computer chose: " + computerchoice);
+
+                if (playerchoice.equals(computerchoice)) {
+                    System.out.println("It's a tie!");
+                } else if ((playerchoice.equals("ROCK") && computerchoice.equals("SCISSOR")) ||
+                        (playerchoice.equals("PAPER") && computerchoice.equals("ROCK")) ||
+                        (playerchoice.equals("SCISSOR") && computerchoice.equals("PAPER"))) {
+                    System.out.println("You win this round!");
+                    playerScore++;
+                } else {
+                    System.out.println("You lose this round!");
+                    computerScore++;
+                }
+
+                System.out.println("Your score: " + playerScore + " | Computer score: " + computerScore);
+            }
+
+            if (playerScore == 5) {
+                System.out.println("Congratulations! You won the game!");
+            } else {
+                System.out.println("Better luck next time! The computer won the game.");
+            }
+
+            System.out.print("Do you want to play again? (Y/N): ");
+            playagain = scanner.nextLine().toUpperCase();
+
+        } while (playagain.equals("Y"));
+
+        System.out.println("Thanks for playing!");
+        scanner.close();
+    }
+}
